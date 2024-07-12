@@ -1,8 +1,33 @@
-const levels = ["84___5___3_198_2___2961738__9_37__45______89_185_967_3_58_6___2_1___95_8_7___2461", "148362975_5_4_9___29______3_1___8_948__291_3___974682___562341___318__57461_7__82", "_168_3_59_______17_7_2_16___69_2__488_7_695232_14__79_19_68_4_____5___616_53__97_", "______189_____3467_7_9863__9_38___1_7_54_____28__7_5_6459_31_78_____89313_8697___"
-]
+
 
 
 let level = (levels[Math.floor(Math.random() * (levels.length - 0)) + 0]).split('')
+
+
+
+let startTime = 0;  // Stores the starting timestamp
+let intervalId;     // Stores the interval ID for stopping later
+
+function startTimer() {
+  startTime = Date.now();  // Get current timestamp when timer starts
+  intervalId = setInterval(updateTimer, 1000);  // Update timer every second
+}
+
+function updateTimer() {
+  const currentTime = Date.now();
+  const elapsedTime = currentTime - startTime;  // Calculate elapsed time in milliseconds
+
+  // Convert elapsed time to hours, minutes, and seconds
+  const hours = Math.floor((elapsedTime / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((elapsedTime / (1000 * 60)) % 60);
+  const seconds = Math.floor((elapsedTime / 1000) % 60);
+
+  // Format the time as "HH:MM:SS"
+  const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+  // Update the timer display on the page
+  document.getElementById("timer").innerHTML = formattedTime;
+}
 
 
 
@@ -19,22 +44,44 @@ function levelToTempLevel(level) {
 
 
 
-function newGame(value) {
+function setGame(value) {
     n = 1
     value.forEach(element => {
         let docElement = document.getElementById(`place${n}`)
         if (element in [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
+            
+            docElement.removeAttribute("readonly")
             docElement.removeAttribute("placeholder")
+            docElement.classList.remove("bg-slate-500")
+            
             docElement.setAttribute("placeholder", `${element}`)
             docElement.setAttribute("readonly", true)
             docElement.classList.add("bg-slate-500")
         }
+        else{
+            docElement.removeAttribute("readonly")
+            docElement.removeAttribute("placeholder")
+            docElement.classList.remove("bg-slate-500")
+
+            docElement.value=''
+            console.log(213421)
+        }
+        console.log(element)
         n++
+        startTimer()
     });
 
 }
-newGame(levelToTempLevel(level))
-function reset() {
-
+setGame(levelToTempLevel(level))
+function resetGame() {
+    setGame(levelToTempLevel(level))
 
 }
+function newGame(){
+    level = (levels[Math.floor(Math.random() * (levels.length - 0)) + 0]).split('')
+    setGame(levelToTempLevel(level))
+}
+
+newGame()
+
+
