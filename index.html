@@ -17,48 +17,5 @@
 
 
 
-
-
-      <button id="startButton">Start Timer</button>
-      <p id="timeDisplay">00:00:00</p>
-    
-      <script>
-        let startTime;
-        let isRunning = false;
-    
-        const startButton = document.getElementById('startButton');
-        const timeDisplay = document.getElementById('timeDisplay');
-    
-        function updateTime() {
-          if (isRunning) {
-            const currentTime = new Date();
-            const elapsedTime = currentTime - startTime; // Time difference in milliseconds
-    
-            // Convert milliseconds to hours, minutes, seconds with leading zeros
-            const hours = String(Math.floor((elapsedTime / (1000 * 60 * 60)) % 24)).padStart(2, '0');
-            const minutes = String(Math.floor((elapsedTime / (1000 * 60)) % 60)).padStart(2, '0');
-            const seconds = String(Math.floor((elapsedTime / 1000) % 60)).padStart(2, '0');
-    
-            timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
-          }
-        }
-    
-        startButton.addEventListener('click', () => {
-          if (!isRunning) {
-            isRunning = true;
-            startTime = new Date();
-            updateTime();
-            intervalId = setInterval(updateTime, 1000); // Update time every second
-          } else {
-            isRunning = false;
-            clearInterval(intervalId); // Stop updating time
-          }
-        });
-      </script>
-
-    </html>
-    
-
-
 </body>
 </html>
