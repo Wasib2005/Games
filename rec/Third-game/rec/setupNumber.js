@@ -24,6 +24,7 @@ function newGame(value) {
     value.forEach(element => {
         let docElement = document.getElementById(`place${n}`)
         if (element in [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
+            docElement.removeAttribute("placeholder")
             docElement.setAttribute("placeholder", `${element}`)
             docElement.setAttribute("readonly", true)
             docElement.classList.add("bg-slate-500")
