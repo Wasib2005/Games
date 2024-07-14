@@ -90,4 +90,4 @@ a.forEach(element => {
 });
 
 console.log(b.join(""))
-console.log(a.length)
+console.log(b.length)

@@ -1,6 +1,3 @@
-
-
-
 let level = (levels[Math.floor(Math.random() * (levels.length - 0)) + 0]).split('')
 
 
@@ -57,21 +54,26 @@ function setGame(value) {
             docElement.setAttribute("placeholder", `${element}`)
             docElement.setAttribute("readonly", true)
             docElement.classList.add("bg-slate-500")
+            docElement.value=''
         }
         else{
+            docElement.value=''
+            docElement.removeAttribute("placeholder")
             docElement.removeAttribute("readonly")
             docElement.removeAttribute("placeholder")
             docElement.classList.remove("bg-slate-500")
 
-            docElement.value=''
-            console.log(213421)
+
         }
-        console.log(element)
+
         n++
         startTimer()
     });
 
 }
+
+
+
 setGame(levelToTempLevel(level))
 function resetGame() {
     setGame(levelToTempLevel(level))
