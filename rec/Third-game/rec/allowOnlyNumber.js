@@ -3,7 +3,7 @@ document.getElementById("playground").addEventListener("keyup", (event) => {
 
     const targetEventId = event.srcElement.id
     const targetEventElement = document.getElementById(targetEventId)
-    // console.log(event.srcElement.hasAttribute("readonly"))
+    console.log(event.srcElement.hasAttribute("readonly"))
 
     if (targetEventValue.length === 1) {
         if (!(['1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(targetEventValue[0]))){
