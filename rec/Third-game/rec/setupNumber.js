@@ -1,5 +1,5 @@
 let level = (levels[Math.floor(Math.random() * (levels.length - 0)) + 0]).split('')
-console.log(level)
+
 
 
 
