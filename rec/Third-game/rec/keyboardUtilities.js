@@ -101,6 +101,9 @@ document.getElementById("playground").addEventListener("keyup", (event) => {
         targetEventElement.value = ''
     }
 
+
+    calculate()
+
 }
 
 )
