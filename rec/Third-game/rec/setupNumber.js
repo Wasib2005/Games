@@ -42,23 +42,25 @@ function setGame(value) {
 
         n++
     });
-
 }
+
+
+
+function resetGame() {
+    resetTimer()
+    setGame(levelToTempLevel(level))
+    startTimer()
+    
+}
+function newGame(){
+    resetTimer()
+    level = (levels[Math.floor(Math.random() * (levels.length - 0)) + 0]).split('')
+    setGame(levelToTempLevel(level))
+    startTimer()
+    
+}
+
 
 
 
 setGame(levelToTempLevel(level))
-function resetGame() {
-    setGame(levelToTempLevel(level))
-    resetTimer()
-    
-}
-function newGame(){
-    level = (levels[Math.floor(Math.random() * (levels.length - 0)) + 0]).split('')
-    setGame(levelToTempLevel(level))
-    resetTimer()
-
-}
-
-
-

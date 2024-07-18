@@ -17,7 +17,6 @@ function startTimer() {
 
 function pauseTimer() {
   document.getElementById('pauseTimer').classList.remove('hidden')
-  console.log(21)
   clearInterval(timerId);
   elapsedTime += Date.now() - startTime;
   timerId = null; // Reset timerId
@@ -93,3 +92,9 @@ function errorAlertRemoving() {
     opacity = 100
   }
 }
+
+
+
+
+
+
