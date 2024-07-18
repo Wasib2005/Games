@@ -23,11 +23,11 @@ function setGame(value) {
             
             docElement.removeAttribute("readonly")
             docElement.removeAttribute("placeholder")
-            docElement.classList.remove("bg-slate-500")
+
             
             docElement.setAttribute("placeholder", `${element}`)
             docElement.setAttribute("readonly", true)
-            docElement.classList.add("bg-slate-500")
+
             docElement.value=''
         }
         else{
@@ -35,13 +35,12 @@ function setGame(value) {
             docElement.removeAttribute("placeholder")
             docElement.removeAttribute("readonly")
             docElement.removeAttribute("placeholder")
-            docElement.classList.remove("bg-slate-500")
+
 
 
         }
 
         n++
-        startTimer()
     });
 
 }
@@ -51,11 +50,14 @@ function setGame(value) {
 setGame(levelToTempLevel(level))
 function resetGame() {
     setGame(levelToTempLevel(level))
-
+    resetTimer()
+    
 }
 function newGame(){
     level = (levels[Math.floor(Math.random() * (levels.length - 0)) + 0]).split('')
     setGame(levelToTempLevel(level))
+    resetTimer()
+
 }
 
 
