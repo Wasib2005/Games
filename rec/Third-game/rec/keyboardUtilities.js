@@ -77,6 +77,14 @@ document.getElementById("playground").addEventListener("keyup", (event) => {
         }
 
     }
+    else if (event.key==='Backspace'){
+        if (onlyNum!=1){
+            document.getElementById(`place${onlyNum}`).value=''
+            document.getElementById(`place${onlyNum-1}`).focus()
+
+
+        }
+    }
 
     else if (event.srcElement.hasAttribute("readonly")) {
         showErrorAlert('That cell is immutable')
@@ -86,6 +94,7 @@ document.getElementById("playground").addEventListener("keyup", (event) => {
         if (!(['1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(targetEventValue[0]))) {
             showErrorAlert("Please input 1 to 9. Other than that are not allowed")
             targetEventElement.value = ''
+            console.log(1)
         }
     }
     else if (targetEventValue.length === 2) {
@@ -99,6 +108,7 @@ document.getElementById("playground").addEventListener("keyup", (event) => {
     else {
         showErrorAlert("Please input 1 number at a time!!!")
         targetEventElement.value = ''
+        console.log(event.key==='Backspace')
     }
 
 
